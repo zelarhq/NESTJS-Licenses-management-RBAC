@@ -15,6 +15,12 @@ import { License } from './licenses.entity';
 export class LicensesController {
   constructor(private readonly licensesService: LicensesService) {}
 
+  @Post('create')
+  async createLicense(@Body('userId') userId: number) {
+    const license = await this.licensesService.createLicenseForUser(userId);
+    return license;
+  }
+
   @Post()
   async create(@Body() createLicenseDto: CreateLicenseDto): Promise<License> {
     return this.licensesService.create(createLicenseDto);

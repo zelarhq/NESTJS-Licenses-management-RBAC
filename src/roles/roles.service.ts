@@ -26,6 +26,4 @@ export class RolesService {
   findOne(id: number): Promise<Role> {
     return this.rolesRepository.findOne({ where: { id } });
   }
-
-  // More role-related methods...
 }
